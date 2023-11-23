@@ -1,0 +1,23 @@
+
+ion-segment-button {
+  min-width: auto;
+}
+
+/* Material Design styles */
+ion-segment-button.md::part(native) {
+  color: rgba(55,55,55,0.5);
+  font-weight: bold;
+  font-size: 22px;
+}
+
+ion-segment-button.md:hover::part(native) {
+  color: #FFF;
+
+}
+.segment-button-checked.md::part(native) {
+  color: #FFF;
+}
+
+ion-segment-button.md::part(indicator-background) {
+  height: 0;
+}

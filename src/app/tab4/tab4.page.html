@@ -1,0 +1,17 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Nahrungsmittel</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="create()">
+      <ion-icon name="add-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content
+  [fullscreen]="true"
+  class="ion-padding">
+
+  <router-outlet></router-outlet>
+
+</ion-content>

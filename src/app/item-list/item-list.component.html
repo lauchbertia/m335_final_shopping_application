@@ -1,0 +1,30 @@
+<ion-refresher slot="fixed" (ionRefresh)="handleRefresh($event)">
+  <ion-refresher-content></ion-refresher-content>
+</ion-refresher>
+
+<ion-list>
+  <ion-item-group *ngFor="let category of categories">
+    <ion-item-divider *ngIf="getFoodsOfCategory(category.id).length > 0">
+      <ion-label>{{ category.name }}</ion-label>
+    </ion-item-divider>
+
+    <ion-item-sliding
+        *ngFor="let item of getFoodsOfCategory(category.id)">
+      <ion-item
+        [button]="true"
+        (click)="edit(item)">
+        {{ item.name }}
+      </ion-item>
+      <ion-item-options slot="end">
+        <ion-item-option color="danger">
+            <ion-icon
+              slot="icon-only"
+              name="trash"
+              (click)="delete(item)">
+            </ion-icon>
+        </ion-item-option>
+      </ion-item-options>
+    </ion-item-sliding>
+
+  </ion-item-group>
+</ion-list>

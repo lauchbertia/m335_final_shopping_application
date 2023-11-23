@@ -1,0 +1,47 @@
+    <ion-list>
+      <ion-item>
+        <ion-input
+          label="Name"
+          labelPlacement="stacked"
+          placeholder="Name eingeben"
+          type="text"
+          name="name"
+          required="true"
+          [(ngModel)]="name">
+        </ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-range
+          labelPlacement="stacked"
+          label="Grösse"
+          [ticks]="true"
+          [snaps]="true"
+          [min]="0"
+          [max]="10"
+          name="size"
+          [(ngModel)]="size"
+          >
+        </ion-range>
+      </ion-item>
+
+      <ion-item>
+        <ion-select
+          label="Farbe"
+          labelPlacement="stacked"
+          placeholder="auswählen"
+          name="color"
+          [(ngModel)]="color">
+          <ion-select-option value="red">Rot</ion-select-option>
+          <ion-select-option value="green">Grün</ion-select-option>
+          <ion-select-option value="blue">Blau</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+    </ion-list>
+
+    <h2 style="text-align: center"
+      [style]="{
+          color: color,
+          fontSize: getFontSize()
+      }">{{ name}}<h2>

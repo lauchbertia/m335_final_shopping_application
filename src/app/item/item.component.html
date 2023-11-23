@@ -1,0 +1,75 @@
+  <ion-card color="light">
+
+    <ion-card-header>
+      Lebensmittel bearbeiten
+    </ion-card-header>
+
+    <ion-card-content>
+
+      <form
+        (ngSubmit)="saveFood(foodForm.value)"
+        [formGroup]="foodForm">
+
+          <ion-input
+            label="Name"
+            labelPlacement="floating"
+            errorText="Name fehlt"
+            formControlName="name"
+            [required]="true"
+          ></ion-input>
+
+
+          <label>Nutriscore</label>
+
+          <ion-segment
+            formControlName="score">
+            <ion-segment-button [value]="1"
+              style="background: green">A
+            </ion-segment-button>
+            <ion-segment-button [value]="2"
+              style="background: lightgreen">B
+            </ion-segment-button>
+            <ion-segment-button [value]="3"
+              style="background: yellow">C
+            </ion-segment-button>
+            <ion-segment-button [value]="4"
+              style="background: orange">D
+            </ion-segment-button>
+            <ion-segment-button [value]="5"
+              style="background: red">E
+            </ion-segment-button>
+          </ion-segment>
+
+
+          <ion-select
+            label="Kategorie"
+            labelPlacement="floating"
+            helperText="Wählen Sie eine Kategorie"
+            formControlName="category"
+            [required]="true"
+          >
+              <ion-select-option
+                *ngFor="let category of categories"
+                [value]="category.id">
+                {{ category.name }}
+              </ion-select-option>
+
+          </ion-select>
+
+        <ion-button
+          type="cancel"
+          (click)="back()"
+          fill="clear">Abbrechen
+        </ion-button>
+
+        <ion-button
+          type="submit"
+          fill="clear">Speichern
+        </ion-button>
+
+
+      </form>
+
+    </ion-card-content>
+
+  </ion-card>
