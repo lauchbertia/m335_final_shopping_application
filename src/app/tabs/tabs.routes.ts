@@ -30,18 +30,18 @@ export const routes: Routes = [
               import('../item-list/item-list.component').then((m) => m.ItemListComponent),
           },
           {
-            path: 'food',
+            path: 'item',
             loadComponent: () =>
               import('../item/item.component').then((m) => m.ItemComponent),
           },
           {
-            path: 'food/:id',
+            path: 'item/:id',
             loadComponent: () =>
               import('../item/item.component').then((m) => m.ItemComponent),
           },
           {
             path: '',
-            redirectTo: 'foods',
+            redirectTo: 'items',
             pathMatch: 'full',
           }
         ],

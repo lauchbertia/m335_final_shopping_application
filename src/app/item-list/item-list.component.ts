@@ -1,25 +1,25 @@
 import { Component, OnInit } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
-import { FoodService } from '../services/item.service';
+import { ItemService } from '../services/item.service';
 import { CommonModule } from '@angular/common';
-import { Food } from 'src/app/data/food';
+import { Item } from 'src/app/data/item';
 import { Router } from '@angular/router';
-import { Category } from '../data/category';
+import { List } from '../data/list';
 
 @Component({
-  selector: 'app-food-list',
-  templateUrl: './food-list.component.html',
-  styleUrls: ['./food-list.component.scss'],
+  selector: 'item-list',
+  templateUrl: './item-list.component.html',
+  styleUrls: ['./item-list.component.scss'],
   imports: [IonicModule,CommonModule],
   standalone: true
 })
 export class ItemListComponent  implements OnInit {
 
-  foods : Array<Food> | null = []
-  categories : Array<Category> | null = []
+  items : Array<Item> | null = []
+  lists : Array<List> | null = []
 
   constructor(
-    private foodService : FoodService,
+    private itemService : ItemService,
     private router : Router) { }
 
   ngOnInit() {
@@ -27,21 +27,21 @@ export class ItemListComponent  implements OnInit {
   }
 
   loadData () {
-    this.foodService.getCategories()
+    this.itemService.getLists()
       .then(data => {
-        this.categories = data
+        this.lists = data
       })
-    this.foodService.getFoods()
+    this.itemService.getItems()
       .then(data => {
-        this.foods = data
+        this.items = data
       })
   }
 
-  getFoodsOfCategory (category : number) {
-    let filteredFoods : Array<Food> = []
-    if (this.foods) {
-      filteredFoods = this.foods
-        .filter(food => food.category == category)
+  getItemsOfList (list : number) {
+    let filteredFoods : Array<Item> = []
+    if (this.items) {
+      filteredFoods = this.items
+        .filter(food => food.list == list)
     }
     return filteredFoods
 
@@ -52,16 +52,16 @@ export class ItemListComponent  implements OnInit {
     event.target.complete()
   }
 
-  async edit (food:Food) {
-    await this.router.navigate(['tabs/tab4/food', food.id])
+  async edit (item:Item) {
+    await this.router.navigate(['tabs/tab4/item', item.id])
   }
 
-  delete (food:Food) {
-    this.foodService.deleteFood(food)
+  delete (item:Item) {
+    this.itemService.deleteItem(item)
       .then(payload =>  {
-        this.foodService.getFoods()
+        this.itemService.getItems()
           .then(data => {
-            this.foods = data
+            this.items = data
           })
       })
   }

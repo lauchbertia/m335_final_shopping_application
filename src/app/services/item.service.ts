@@ -2,17 +2,18 @@ import { Injectable } from "@angular/core";
 
 import { LoadingController } from "@ionic/angular";
 import { createClient, SupabaseClient } from "@supabase/supabase-js";
-import { Food } from "src/app/data/food";
+import { Item } from "src/app/data/item";
 import { environment } from "src/environments/environment";
+import { List } from "../data/list";
 
-export const FOOD_TABLE = 'food'
-export const CATEGORIES_TABLE = 'categories'
+export const ITEMS_TABLE = 'items'
+export const LISTS_TABLE = 'lists'
 
 @Injectable({
   providedIn: 'root'
 })
 
-export class FoodService {
+export class ItemService {
 
   private supabase: SupabaseClient
 
@@ -24,18 +25,9 @@ export class FoodService {
     return this.loadingCtrl.create()
   }
 
-  async getCategories () {
+  async getList (id: number) {
     const { data, error } = await this.supabase
-      .from(CATEGORIES_TABLE)
-      .select('*')
-      .order('name')
-
-    return data || []
-  }
-
-  async getFood (id: number) {
-    const { data, error } = await this.supabase
-      .from(FOOD_TABLE)
+      .from(LISTS_TABLE)
       .select('*')
       .eq('id', id)
       .single()
@@ -43,33 +35,31 @@ export class FoodService {
     return data || {}
   }
 
-  async getFoods () {
-    const { data, error} = await this.supabase
-      .from(FOOD_TABLE)
+  async getLists () {
+    const { data, error } = await this.supabase
+      .from(LISTS_TABLE)
       .select('*')
       .order('name')
 
     return data || []
   }
 
-  async updateFood (food: Food) {
+  async updateList (list: List) {
     const {data, error} = await this.supabase
-      .from(FOOD_TABLE)
-      .update(food)
-      .eq('id', food.id)
+      .from(LISTS_TABLE)
+      .update(list)
+      .eq('id', list.id)
       .select()
 
     return data
   }
 
-  async createFood(food : Food) {
+  async createList(list: List) {
 
     const {data, error} = await this.supabase
-      .from(FOOD_TABLE)
+      .from(LISTS_TABLE)
       .insert({
-        name: food.name,
-        category: food.category,
-        score: food.score
+        name: list.name,
       })
       .select('*')
       .single();
@@ -77,11 +67,66 @@ export class FoodService {
     return data
   }
 
-  async deleteFood (food: Food) {
+  async deleteList (list: List) {
     const {data, error} = await this.supabase
-      .from(FOOD_TABLE)
+      .from(LISTS_TABLE)
       .delete()
-      .eq('id', food.id)
+      .eq('id', list.id)
+      .select()
+
+    return data
+  }
+
+  async getItem (id: number) {
+    const { data, error } = await this.supabase
+      .from(ITEMS_TABLE)
+      .select('*')
+      .eq('id', id)
+      .single()
+
+    return data || {}
+  }
+
+  async getItems () {
+    const { data, error} = await this.supabase
+      .from(ITEMS_TABLE)
+      .select('*')
+      .order('name')
+
+    return data || []
+  }
+
+  async updateItem (item: Item) {
+    const {data, error} = await this.supabase
+      .from(ITEMS_TABLE)
+      .update(item)
+      .eq('id', item.id)
+      .select()
+
+    return data
+  }
+
+  async createItem(item: Item) {
+
+    const {data, error} = await this.supabase
+      .from(ITEMS_TABLE)
+      .insert({
+        name: item.name,
+        list: item.list,
+        score: item.score,
+        url: item.url
+      })
+      .select('*')
+      .single();
+
+    return data
+  }
+
+  async deleteItem (item: Item) {
+    const {data, error} = await this.supabase
+      .from(ITEMS_TABLE)
+      .delete()
+      .eq('id', item.id)
       .select()
 
     return data

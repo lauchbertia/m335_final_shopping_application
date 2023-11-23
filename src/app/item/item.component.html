@@ -1,14 +1,14 @@
   <ion-card color="light">
 
     <ion-card-header>
-      Lebensmittel bearbeiten
+      Lebensmittel updaten
     </ion-card-header>
 
     <ion-card-content>
 
       <form
-        (ngSubmit)="saveFood(foodForm.value)"
-        [formGroup]="foodForm">
+        (ngSubmit)="saveItem(itemForm.value)"
+        [formGroup]="itemForm">
 
           <ion-input
             label="Name"
@@ -19,7 +19,7 @@
           ></ion-input>
 
 
-          <label>Nutriscore</label>
+          <!--<label>Nutriscore</label>
 
           <ion-segment
             formControlName="score">
@@ -38,20 +38,20 @@
             <ion-segment-button [value]="5"
               style="background: red">E
             </ion-segment-button>
-          </ion-segment>
+          </ion-segment>-->
 
 
           <ion-select
-            label="Kategorie"
+            label="Liste"
             labelPlacement="floating"
-            helperText="Wählen Sie eine Kategorie"
-            formControlName="category"
+            helperText="Wählen Sie eine Liste"
+            formControlName="list"
             [required]="true"
           >
               <ion-select-option
-                *ngFor="let category of categories"
-                [value]="category.id">
-                {{ category.name }}
+                *ngFor="let list of lists"
+                [value]="list.id">
+                {{ list.name }}
               </ion-select-option>
 
           </ion-select>

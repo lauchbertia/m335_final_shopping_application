@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
-import { FoodListComponent } from '../food-list/food-list.component';
-import { FoodDetailComponent } from '../food-detail/food-detail.component';
+import { ItemComponent } from '../item/item.component';
+import { ItemListComponent } from '../item-list/item-list.component';
 import { Router, RouterModule } from '@angular/router';
 
 @Component({
@@ -9,7 +9,7 @@ import { Router, RouterModule } from '@angular/router';
   templateUrl: './tab4.page.html',
   styleUrls: ['./tab4.page.scss'],
   standalone: true,
-  imports: [IonicModule,FoodListComponent,FoodDetailComponent,RouterModule]
+  imports: [IonicModule,ItemListComponent,ItemComponent,RouterModule]
 })
 export class Tab4Page {
 
@@ -18,7 +18,7 @@ export class Tab4Page {
   ) {}
 
   async create () {
-    await this.router.navigate(['tabs/tab4/food'])
+    await this.router.navigate(['tabs/tab4/item'])
   }
 
 }

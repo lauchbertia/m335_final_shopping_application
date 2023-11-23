@@ -3,13 +3,13 @@
 </ion-refresher>
 
 <ion-list>
-  <ion-item-group *ngFor="let category of categories">
-    <ion-item-divider *ngIf="getFoodsOfCategory(category.id).length > 0">
-      <ion-label>{{ category.name }}</ion-label>
+  <ion-item-group *ngFor="let list of lists">
+    <ion-item-divider *ngIf="getItemsOfList(list.id).length > 0">
+      <ion-label>{{ list.name }}</ion-label>
     </ion-item-divider>
 
     <ion-item-sliding
-        *ngFor="let item of getFoodsOfCategory(category.id)">
+        *ngFor="let item of getItemsOfList(list.id)">
       <ion-item
         [button]="true"
         (click)="edit(item)">

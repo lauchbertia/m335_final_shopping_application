@@ -4,9 +4,10 @@
 
 export const environment = {
   production: false,
-  supabaseUrl: 'https://pqhhtjoqgsaeuhlgrsnm.supabase.co',
-  supabaseKey: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBxaGh0am9xZ3NhZXVobGdyc25tIiwicm9sZSI6ImFub24iLCJpYXQiOjE2OTQ2NzkyNjUsImV4cCI6MjAxMDI1NTI2NX0.u5wYAtN4ADb8IQNvaNYZ_XrpV2RgqfvIsFPCpiv1yG0',
+  supabaseUrl: 'https://bdavdoecdorntunmttft.supabase.co',
+  supabaseKey: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJkYXZkb2VjZG9ybnR1bm10dGZ0Iiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTcwMDE0NTg1NiwiZXhwIjoyMDE1NzIxODU2fQ.AJWcXlyeZTe7Qq0tWFU3pCq_nOz5ZuQuL4R5H9rwdEI',
 };
+
 
 /*
  * For easier debugging in development mode, you can import the following file
