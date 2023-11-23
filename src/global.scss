@@ -24,3 +24,127 @@
 @import "@ionic/angular/css/text-alignment.css";
 @import "@ionic/angular/css/text-transformation.css";
 @import "@ionic/angular/css/flex-utils.css";
+
+/*
+ * Optional CSS
+ * -----------------------------------
+ */
+
+/* This sets a different background and item background in light mode on ios */
+:root {
+    /** primary - ein leichtes Rosa/Beige **/
+    --ion-color-primary: #f7e0d9; /* Altrosa */
+    --ion-color-primary-rgb: 247, 224, 217;
+    --ion-color-primary-contrast: #1e1e1e; /* Dunkelgrau für Lesbarkeit */
+    --ion-color-primary-contrast-rgb: 30, 30, 30;
+    --ion-color-primary-shade: #e0c9c2;
+    --ion-color-primary-tint: #f8e7e2;
+  
+    /** secondary - ein helles Grau **/
+    --ion-color-secondary: #f5f5:f5; /* Helles Grau */
+    --ion-color-secondary-rgb: 245, 245, 245;
+    --ion-color-secondary-contrast: #1e1e1e;
+    --ion-color-secondary-contrast-rgb: 30, 30, 30;
+    --ion-color-secondary-shade: #d4d4d4;
+    --ion-color-secondary-tint: #fafafa;
+  
+    /** tertiary - ein unterstützendes Rosa/Beige **/
+    --ion-color-tertiary: #e8d4cb; /* Unterstützendes Beige */
+    --ion-color-tertiary-rgb: 232, 212, 203;
+    --ion-color-tertiary-contrast: #1e1e1e;
+    --ion-color-tertiary-contrast-rgb: 30, 30, 30;
+    --ion-color-tertiary-shade: #d1beb5;
+    --ion-color-tertiary-tint: #eaded7;
+  
+    /** success - für Erfolgsmeldungen, ein beruhigendes Grün **/
+    --ion-color-success: #a1d6ca; /* Beruhigendes Grün */
+    --ion-color-success-rgb: 161, 214, 202;
+    --ion-color-success-contrast: #1e1e1e;
+    --ion-color-success-contrast-rgb: 30, 30, 30;
+    --ion-color-success-shade: #91bfb5;
+    --ion-color-success-tint: #b1e1d5;
+  
+    /** warning - für Warnmeldungen, ein sanftes Gelb **/
+    --ion-color-warning: #fff4e1; /* Sanftes Gelb */
+    --ion-color-warning-rgb: 255, 244, 225;
+    --ion-color-warning-contrast: #1e1e1e;
+    --ion-color-warning-contrast-rgb: 30, 30, 30;
+    --ion-color-warning-shade: #e4d6c3;
+    --ion-color-warning-tint: #fff6e5;
+  
+    /** danger - für Fehlermeldungen, ein dezentes Rot **/
+    --ion-color-danger: #f1b4b2; /* Dezentes Rot */
+    --ion-color-danger-rgb: 241, 180, 178;
+    --ion-color-danger-contrast: #1e1e1e;
+    --ion-color-danger-contrast-rgb: 30, 30, 30;
+    --ion-color-danger-shade: #d9a2a0;
+    --ion-color-danger-tint: #f2c2c0;
+  
+    /** dark - der Text soll dunkelgrau sein **/
+    --ion-color-dark: #1e1e1e; /* Sehr dunkles Grau */
+    --ion-color-dark-rgb: 30, 30, 30;
+    --ion-color-dark-contrast: #f7e0d9; /* Für Kontrastelemente in Altrosa */
+    --ion-color-dark-contrast-rgb: 247, 224, 217;
+    --ion-color-dark-shade: #1b1b1b;
+    --ion-color-dark-tint: #383838;
+  
+    /** medium - ein mittlerer Grauton **/
+    --ion-color-medium: #dcdcdc; /* Mittleres Grau */
+    --ion-color-medium-rgb: 220, 220, 220;
+    --ion-color-medium-contrast: #1e1e1e;
+    --ion-color-medium-contrast-rgb: 30, 30, 30;
+    --ion-color-medium-shade: #c4c4c4;
+    --ion-color-medium-tint: #e4e4e4;
+  
+    /** light - ein sehr helles Grau **/
+    --ion-color-light: #f8f8f8; /* Sehr helles Grau */
+    --ion-color-light-rgb: 248, 248, 248;
+    --ion-color-light-contrast: #1e1e1e;
+    --ion-color-light-contrast-rgb: 30, 30, 30;
+    --ion-color-light-shade: #e0e0e0;
+    --ion-color-light-tint: #fafafa;
+  }
+  
+  /* This sets a different background and item background in light mode on md */
+  .md body {
+    --ion-background-color: #ffffff;
+    --ion-background-color-rgb: 255,255,255;
+  
+    --ion-text-color: #1e1e1e;
+    --ion-text-color-rgb: 30,30,30;
+  
+    --ion-border-color: #dcdcdc;
+  
+    --ion-color-step-50: #f2f2f2;
+    --ion-color-step-100: #e6e6e6;
+    --ion-color-step-150: #dadada;
+    --ion-color-step-200: #cecece;
+    --ion-color-step-250: #c2c2c2;
+    --ion-color-step-300: #b6b6b6;
+    --ion-color-step-350: #aaaaaa;
+    --ion-color-step-400: #9e9e9e;
+    --ion-color-step-450: #929292;
+    --ion-color-step-500: #868686;
+    --ion-color-step-550: #7a7a7a;
+    --ion-color-step-600: #6e6e6e;
+    --ion-color-step-650: #626262;
+    --ion-color-step-700: #565656;
+    --ion-color-step-750: #4a4a4a;
+    --ion-color-step-800: #3e3e3e;
+    --ion-color-step-850: #323232;
+    --ion-color-step-900: #262626;
+    --ion-color-step-950: #1a1a1a;
+  
+    --ion-item-background: #ffffff;
+  
+    --ion-toolbar-background: #f7e0d9; /* Altrosa */
+  
+    --ion-tab-bar-background: #f7e0d9; /* Altrosa */
+  
+    --ion-card-background: #f8f8f8; /* Sehr helles Grau */
+  }
+  
+  /* This is added for the flashing that happens when toggling between themes */
+  ion-item {
+    --transition: none;
+  }

@@ -21,4 +21,9 @@ export class Tab4Page {
     await this.router.navigate(['tabs/tab4/item'])
   }
 
+  async createList () {
+    await this.router.navigate(['tabs/tab4/items'])
+  }
+
+
 }

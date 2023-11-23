@@ -56,6 +56,8 @@
 
           </ion-select>
 
+          <camera (imageChanged)="handleImageChange($event)"></camera>
+
         <ion-button
           type="cancel"
           (click)="back()"
