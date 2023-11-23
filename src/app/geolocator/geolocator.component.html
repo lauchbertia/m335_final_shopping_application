@@ -16,8 +16,23 @@
         <ion-label>Höhe ü. Meer</ion-label>
         {{ altitude }}
       </ion-item>
+      <ion-item>
+        <ion-label>Zuhause Breitengrad</ion-label>
+        {{ HOME_LOCATION.latitude }}
+      </ion-item>
+      <ion-item>
+        <ion-label>Zuhause Längengrad</ion-label>
+        {{ HOME_LOCATION.longitude }}
+      </ion-item>
+      <ion-item>
+        <ion-label>Abstand zu Zuhause</ion-label>
+        {{ distanceToHome }} Meter
+      </ion-item>
     </ion-list>
 
   <ion-button fill="clear" (click)="getCurrentPosition()">Standort abfragen</ion-button>
   <ion-button fill="clear" (click)="resetPosition()">Reset</ion-button>
+  <ion-button fill="clear" (click)="setHome()">Zuhause setzen</ion-button>
+  <ion-button fill="clear" (click)="calculateDistanceToHome()">Abstand berechnen</ion-button>
+
 </ion-card>
