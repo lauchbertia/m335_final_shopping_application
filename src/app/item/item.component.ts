@@ -23,12 +23,11 @@ export class ItemComponent implements OnInit {
   imageUrl: string | undefined;
 
   public itemForm = new FormGroup({
-    id: new FormControl(0),
+    id: new FormControl(0, Validators.required),
     name: new FormControl('', Validators.required),
-    score: new FormControl(0, Validators.required),
     list: new FormControl(0, Validators.required),
     url: new FormControl('')
-  })
+  });
 
   constructor(
     private itemService: ItemService,
@@ -55,22 +54,59 @@ export class ItemComponent implements OnInit {
     await this.router.navigate(['tabs', 'tab4'])
   }
 
-  saveItem(formData: any) {
+  /*saveItem(formData: any) {
     this.item = Object.assign(formData)
+    
 
     if (this.item.id) {
       this.itemService.updateItem(this.item)
         .then(payload => {
           this.back()
         })
+        console.log('formData:', formData);
+        console.log('this.item:', this.item);
     } else {
       const formData = this.itemForm.value;
       formData.url = this.imageUrl;
       this.notificationService.sendLocalNotification('Obacht','Da gibt es etwas neues auf deiner Liste!');
+      console.log('formData:', formData);
+      console.log('this.item:', this.item);
       this.itemService.createItem(this.item)
         .then(payload => {
           this.back()
         })
+    }
+  }*/
+
+  saveItem() {
+    if (this.itemForm.valid) {
+      const formData = this.itemForm.value;
+  
+      if (this.item.id !== undefined) {
+        formData.id = this.item.id; // Hier wird sichergestellt, dass formData.id nicht undefined ist
+  
+        this.itemService.updateItem(formData as Item)
+          .then(payload => {
+            console.log('Item updated successfully:', payload);
+            this.back();
+          })
+          .catch(error => {
+            console.error('Error updating item:', error);
+          });
+      } else {
+        formData.url = this.imageUrl;
+        this.notificationService.sendLocalNotification('Obacht', 'Da gibt es etwas Neues auf deiner Liste!');
+        console.log('FormData before creating item:', formData);
+        this.itemService.createItem(formData as Item)
+          .then(payload => {
+            console.log('Item created successfully:', payload);
+            this.back();
+          })
+          .catch(error => {
+            console.error('Error creating item:', error);
+            // Handle the error as needed
+          });
+      }
     }
   }
 
