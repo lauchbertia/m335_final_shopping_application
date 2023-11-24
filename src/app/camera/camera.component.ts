@@ -19,13 +19,13 @@ export class CameraComponent {
 
   async takePicture() {
     const image = await Camera.getPhoto({
-      resultType: CameraResultType.Uri,
+      resultType: CameraResultType.DataUrl,
       source: CameraSource.Camera,
       quality: 100,
     });
-
-    this.imageUrl = image.webPath;
-    this.imageChanged.emit(this.imageUrl); // Emit the image URL
+  
+    this.imageUrl = image.dataUrl;
+    this.imageChanged.emit(this.imageUrl); // Emit the data URL directly
   }
 
 

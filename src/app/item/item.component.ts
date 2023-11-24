@@ -104,7 +104,7 @@ export class ItemComponent implements OnInit {
           })
           .catch(error => {
             console.error('Error creating item:', error);
-            // Handle the error as needed
+          
           });
       }
     }
