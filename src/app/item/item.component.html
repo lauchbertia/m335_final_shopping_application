@@ -55,6 +55,7 @@
               </ion-select-option>
 
           </ion-select>
+          <ion-item> <img *ngIf="imageUrl" [src]="imageUrl" alt="Bild des Items"/></ion-item>
 
           <camera (imageChanged)="handleImageChange($event)"></camera>
 

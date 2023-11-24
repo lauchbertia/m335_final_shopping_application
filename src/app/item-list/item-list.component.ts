@@ -17,6 +17,7 @@ export class ItemListComponent  implements OnInit {
 
   items : Array<Item> | null = []
   lists : Array<List> | null = []
+  imageUrl: string | undefined;
 
   constructor(
     private itemService : ItemService,
@@ -50,6 +51,10 @@ export class ItemListComponent  implements OnInit {
   async handleRefresh (event : any) {
     await this.loadData()
     event.target.complete()
+  }
+
+  handleImageChange(imageUrl: string) {
+    this.imageUrl = imageUrl;
   }
 
   async edit (item:Item) {

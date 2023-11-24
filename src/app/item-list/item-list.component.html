@@ -13,6 +13,9 @@
       <ion-item
         [button]="true"
         (click)="edit(item)">
+        <ion-thumbnail slot="start">
+          <ion-img width="200px" height="200px" *ngIf="imageUrl" [src]="imageUrl" alt="Bild des Items"></ion-img>
+        </ion-thumbnail>
         {{ item.name }}
       </ion-item>
       <ion-item-options slot="end">

@@ -113,7 +113,6 @@ export class ItemService {
       .insert({
         name: item.name,
         list: item.list,
-        score: item.score,
         url: item.url
       })
       .select('*')
