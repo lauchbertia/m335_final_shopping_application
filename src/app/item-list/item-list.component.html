@@ -8,26 +8,18 @@
       <ion-label>{{ list.name }}</ion-label>
     </ion-item-divider>
 
-    <ion-item-sliding
-        *ngFor="let item of getItemsOfList(list.id)">
-      <ion-item
-        [button]="true"
-        (click)="edit(item)">
+    <ion-item-sliding *ngFor="let item of getItemsOfList(list.id)">
+      <ion-item [button]="true" (click)="edit(item)">
         <ion-thumbnail slot="start">
-          <ion-img width="200px" height="200px" *ngIf="imageUrl" [src]="imageUrl" alt="Bild des Items"></ion-img>
+          <ion-img [src]="item.url" alt="Bild des Items"></ion-img>
         </ion-thumbnail>
         {{ item.name }}
       </ion-item>
       <ion-item-options slot="end">
-        <ion-item-option color="danger">
-            <ion-icon
-              slot="icon-only"
-              name="trash"
-              (click)="delete(item)">
-            </ion-icon>
+        <ion-item-option color="danger" (click)="delete(item)">
+          <ion-icon slot="icon-only" name="trash"></ion-icon>
         </ion-item-option>
       </ion-item-options>
     </ion-item-sliding>
-
   </ion-item-group>
 </ion-list>
