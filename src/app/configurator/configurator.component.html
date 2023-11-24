@@ -1,9 +1,14 @@
-
-<ion-list-header>Ansicht</ion-list-header>
-  <ion-list [inset]="true">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Modus</ion-card-title>
+    </ion-card-header>
+  
+  <ion-list inset="[true]">
     <ion-item>
+      <ion-label>Modus setzen</ion-label>
       <ion-toggle [(ngModel)]="themeToggle" (ionChange)="toggleChange($event)" justify="space-between"
         >Dark Mode</ion-toggle
       >
     </ion-item>
   </ion-list>
+</ion-card>
